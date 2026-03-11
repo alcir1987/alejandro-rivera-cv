@@ -3,9 +3,366 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hola Mundo</title>
+  <title>CV - Alejandro Rivera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --surface: #fffdf8;
+      --ink: #1f2a2c;
+      --muted: #536166;
+      --line: #d6d0c1;
+      --brand: #0f766e;
+      --brand-2: #c2410c;
+      --chip: #e8ece5;
+      --shadow: 0 12px 40px rgba(31, 42, 44, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, #efe6d4 0%, transparent 32%),
+        radial-gradient(circle at 100% 20%, #d8ebe2 0%, transparent 30%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(1080px, 92vw);
+      margin: 2.2rem auto 3rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: reveal 0.6s ease forwards;
+    }
+
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.18s; }
+    .card:nth-child(4) { animation-delay: 0.26s; }
+    .card:nth-child(5) { animation-delay: 0.34s; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "QA";
+      position: absolute;
+      right: 1rem;
+      top: -0.8rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: clamp(3rem, 11vw, 6rem);
+      color: rgba(15, 118, 110, 0.08);
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+    }
+
+    .subtitle {
+      margin-top: 0.6rem;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .meta {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.86rem;
+    }
+
+    .chip {
+      background: var(--chip);
+      border: 1px solid #c9d2ca;
+      border-radius: 999px;
+      padding: 0.33rem 0.7rem;
+    }
+
+    .status {
+      justify-self: end;
+      text-align: right;
+      border-left: 1px dashed var(--line);
+      padding-left: 1rem;
+    }
+
+    .status p {
+      margin: 0.35rem 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .section-title {
+      margin-bottom: 0.85rem;
+      font-size: 1.1rem;
+      color: #122426;
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .timeline-item {
+      padding: 0.8rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fffcf4;
+    }
+
+    .timeline-item strong {
+      display: block;
+    }
+
+    .timeline-item small {
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill {
+      border: 1px solid #bfd6cb;
+      background: #eff6f3;
+      color: #123f39;
+      border-radius: 10px;
+      padding: 0.4rem 0.62rem;
+      font-size: 0.9rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.9rem;
+      background: #fffef9;
+    }
+
+    .project p {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact a {
+      color: var(--brand);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact a:hover {
+      border-color: var(--brand);
+    }
+
+    .accent {
+      color: var(--brand-2);
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 600;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .grid,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .status {
+        justify-self: start;
+        text-align: left;
+        border-left: 0;
+        border-top: 1px dashed var(--line);
+        padding-left: 0;
+        padding-top: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hola mundo</h1>
+  <main class="page">
+    <section class="card hero">
+      <div>
+        <p class="accent">Software Quality Assurance</p>
+        <h1>Alejandro Rivera<br />QA Engineer</h1>
+        <p class="subtitle">
+          QA Engineer con enfoque en pruebas manuales y automatizadas, calidad end-to-end,
+          y mejora continua del ciclo de entrega. Especializado en detectar riesgos temprano,
+          elevar cobertura de pruebas y fortalecer pipelines de CI/CD.
+        </p>
+        <div class="meta">
+          <span class="chip">Santiago, Chile</span>
+          <span class="chip">+56 9 6481 0772</span>
+          <span class="chip">alejandroriveracorrales@gmail.com</span>
+        </div>
+      </div>
+      <aside class="status">
+        <h3>Disponibilidad</h3>
+        <p>Remote / Hybrid</p>
+        <p><strong>5+ años</strong> en QA</p>
+        <p><strong>ISTQB</strong> (objetivo 2026)</p>
+      </aside>
+    </section>
+
+    <section class="card grid">
+      <article>
+        <h2 class="section-title">Perfil Profesional</h2>
+        <p>
+          Diseno y ejecuto estrategias de testing para aplicaciones web y APIs,
+          colaborando con equipos de producto, desarrollo y DevOps para reducir defectos en produccion.
+          Me enfoco en trazabilidad de requerimientos, analisis de riesgo y automatizacion orientada a valor.
+        </p>
+      </article>
+      <article>
+        <h2 class="section-title">Stack QA</h2>
+        <div class="skills">
+          <span class="skill">Test Planning</span>
+          <span class="skill">Regression Testing</span>
+          <span class="skill">API Testing</span>
+          <span class="skill">Postman</span>
+          <span class="skill">Playwright</span>
+          <span class="skill">Cypress</span>
+          <span class="skill">Selenium</span>
+          <span class="skill">JMeter</span>
+          <span class="skill">SQL</span>
+          <span class="skill">GitHub Actions</span>
+          <span class="skill">Jira / Xray</span>
+          <span class="skill">Agile / Scrum</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="card grid">
+      <article>
+        <h2 class="section-title">Experiencia</h2>
+        <ul class="list">
+          <li class="timeline-item">
+            <strong>Senior QA Engineer - Tech Company</strong>
+            <small>2024 - Actualidad</small>
+            <p>Implementacion de suite automatizada para smoke y regression, reduciendo 35% incidentes criticos post-release.</p>
+          </li>
+          <li class="timeline-item">
+            <strong>QA Analyst - Fintech Startup</strong>
+            <small>2021 - 2024</small>
+            <p>Definicion de criterios de aceptacion y estrategia de pruebas API para integraciones de pagos.</p>
+          </li>
+          <li class="timeline-item">
+            <strong>Junior QA - Software Factory</strong>
+            <small>2019 - 2021</small>
+            <p>Ejecucion de testing funcional y reporte de bugs con evidencia reproducible y prioridades de negocio.</p>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="projects">
+          <div class="project">
+            <h3>Portal E-commerce QA Framework</h3>
+            <p>Suite E2E con Playwright y reporteria automatica en CI para flujos de compra.</p>
+          </div>
+          <div class="project">
+            <h3>API Quality Gate</h3>
+            <p>Validaciones contractuales y pruebas de carga para microservicios de onboarding.</p>
+          </div>
+          <div class="project">
+            <h3>Release Readiness Dashboard</h3>
+            <p>Dashboard de riesgos, cobertura y salud de builds para decisiones de salida a produccion.</p>
+          </div>
+          <div class="project">
+            <h3>Mobile Regression Pack</h3>
+            <p>Checklist y automatizacion hibrida para releases semanales de app movil.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="card grid">
+      <article>
+        <h2 class="section-title">Educacion y Certificaciones</h2>
+        <ul class="list">
+          <li class="timeline-item">
+            <strong>Ingenieria en Informatica</strong>
+            <small>Universidad / Instituto</small>
+          </li>
+          <li class="timeline-item">
+            <strong>Automation Testing Bootcamp</strong>
+            <small>Platzi / Udemy / Coursera</small>
+          </li>
+          <li class="timeline-item">
+            <strong>ISTQB Foundation (en proceso)</strong>
+            <small>Meta 2026</small>
+          </li>
+        </ul>
+      </article>
+      <article class="contact">
+        <h2 class="section-title">Contacto</h2>
+        <p>LinkedIn: <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">linkedin.com/in/alejandro-rivera</a></p>
+        <p>GitHub: <a href="https://github.com" target="_blank" rel="noreferrer">github.com/alejandro-rivera</a></p>
+        <p>Email: <a href="mailto:alejandroriveracorrales@gmail.com">alejandroriveracorrales@gmail.com</a></p>
+        <p>
+          <small>
+            Tip: reemplaza los datos de ejemplo por tu informacion real y luego lo subimos con
+            `git add . && git commit -m "Actualizar portal CV QA" && git push`.
+          </small>
+        </p>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
