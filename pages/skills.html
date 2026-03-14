@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/styles.css?v=3" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=5" />
 </head>
 <body>
   <header class="site-header">
@@ -38,9 +38,9 @@
       <article>
         <h2 class="section-title">Testing Design</h2>
         <div class="skills">
-          <span class="skill">Test Planning</span>
+          <button class="skill" type="button" data-tooltip="Defino alcance, riesgos, escenarios criticos y criterios de salida para organizar la estrategia de pruebas de cada entrega.">Test Planning</button>
           <span class="skill">Smoke Testing</span>
-          <span class="skill">Regression Testing</span>
+          <button class="skill" type="button" data-tooltip="Lo uso para validar que los cambios no rompan flujos ya estables y priorizar regresiones segun el impacto del release.">Regression Testing</button>
           <span class="skill">Exploratory Testing</span>
           <span class="skill">UAT Support</span>
           <span class="skill">Risk-Based Testing</span>
@@ -49,11 +49,17 @@
       <article>
         <h2 class="section-title">Automation / API</h2>
         <div class="skills">
-          <span class="skill">Playwright</span>
-          <span class="skill">Cypress</span>
-          <span class="skill">Selenium</span>
-          <span class="skill">Postman</span>
-          <span class="skill">Newman</span>
+          <button class="skill" type="button" data-tooltip="Lo uso para escribir escenarios BDD claros y legibles, alineando criterios de aceptacion entre negocio, QA y desarrollo.">Gherkin</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para implementar escenarios BDD ejecutables y mantener suites funcionales legibles para negocio y QA.">Cucumber</button>
+          <button class="skill" type="button" data-tooltip="Lo he usado junto con Python para automatizar escenarios BDD, conectando lenguaje Gherkin con pasos reutilizables.">Behave</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para construir automatizaciones QA, utilidades de soporte y flujos BDD con foco en mantenibilidad y claridad.">Python</button>
+          <button class="skill" type="button" data-tooltip="Lo he usado para pruebas automatizadas web usando Python y Behave para BDD, validando flujos end-to-end en navegadores modernos.">Playwright</button>
+          <button class="skill" type="button" data-tooltip="Lo he utilizado para trabajar con herramientas y frameworks de automatizacion orientados a pruebas API y backend.">Java</button>
+          <button class="skill" type="button" data-tooltip="Lo he usado para automatizar pruebas de API con una sintaxis declarativa, validaciones compactas y buena mantenibilidad.">Karate DSL</button>
+          <button class="skill" type="button" data-tooltip="He automatizado y mantenido codigo de pruebas automatizadas con Selenium en proyectos legacy, cuidando estabilidad y continuidad de la suite.">Selenium</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para automatizar pruebas moviles sobre Android y iOS, validando flujos funcionales en aplicaciones nativas e hibridas.">Appium</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para diseñar, ejecutar y documentar pruebas de API, validando status codes, payloads y comportamientos esperados.">Postman</button>
+          <button class="skill" type="button" data-tooltip="Lo utilizo para correr colecciones de Postman desde linea de comandos y dejar validaciones integradas en flujos CI/CD.">Newman</button>
           <span class="skill">REST Assured</span>
         </div>
       </article>
@@ -63,19 +69,22 @@
       <article>
         <h2 class="section-title">Delivery / Calidad Continua</h2>
         <div class="skills">
-          <span class="skill">Git / GitHub</span>
-          <span class="skill">GitHub Actions</span>
+          <button class="skill" type="button" data-tooltip="Lo uso para versionar codigo, revisar cambios y mantener trazabilidad clara en flujos de desarrollo y automatizacion QA.">Git</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para ejecutar pipelines de validacion, automatizaciones QA y checks que ayudan a mantener la calidad en cada cambio.">GitHub Actions</button>
+          <button class="skill" type="button" data-tooltip="Lo he usado para ejecutar pipelines CI, automatizar validaciones y apoyar procesos de entrega continua en proyectos con GitLab.">GitLab CI</button>
           <span class="skill">CI Quality Gates</span>
           <span class="skill">Docker Basics</span>
-          <span class="skill">SQL</span>
-          <span class="skill">JMeter</span>
+          <button class="skill" type="button" data-tooltip="Lo uso para consultar, validar y contrastar datos en base de datos durante pruebas funcionales, de integracion y de consistencia.">SQL</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para validar datos y flujos apoyados en DynamoDB cuando las pruebas requieren revisar persistencia y consistencia de informacion.">AWS DynamoDB</button>
+          <button class="skill" type="button" data-tooltip="Lo he utilizado para validar archivos, evidencias y objetos almacenados en S3 dentro de flujos funcionales e integraciones.">AWS S3</button>
+          <button class="skill" type="button" data-tooltip="Lo he usado para pruebas de rendimiento y carga, analizando tiempos de respuesta y comportamiento bajo concurrencia.">JMeter</button>
         </div>
       </article>
       <article>
         <h2 class="section-title">Trabajo con Equipo</h2>
         <div class="skills">
-          <span class="skill">Scrum</span>
-          <span class="skill">Jira / Xray</span>
+          <button class="skill" type="button" data-tooltip="Trabajo bajo Scrum para planificar, refinar y dar seguimiento a historias, bugs y entregas junto con el equipo de desarrollo.">Scrum</button>
+          <button class="skill" type="button" data-tooltip="Lo uso para gestionar historias, evidencias, ejecuciones y trazabilidad de pruebas dentro del ciclo QA del equipo.">Jira / Xray</button>
           <span class="skill">Confluence</span>
           <span class="skill">Test Cases Documentation</span>
           <span class="skill">Bug Triage</span>
@@ -86,6 +95,6 @@
   </main>
 
   <footer class="site-footer"><p>QA Engineer | CV y Portafolio - Alejandro Rivera <span data-year></span></p></footer>
-  <script src="../assets/js/app.js?v=3"></script>
+  <script src="../assets/js/app.js?v=4"></script>
 </body>
 </html>
